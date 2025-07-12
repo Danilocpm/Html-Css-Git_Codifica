@@ -92,6 +92,38 @@ git merge <nome_da_branch>
 git branch -d <nome_da_branch>
 ```
 
+# Stash
 
+```bash
+# Limpa area de trabalho e salva as possiveis alteracoes no stash (armazenamento temporario)
+git stash
 
+# Trazer as alteracoes salvas no stash
+git stash pop
+
+# Lista de saves do stash
+git stash list
+```
+
+# Checkout
+
+```bash
+# Mudar de Branch
+git checkout minha-branch
+
+# Criar e mudar para nova branch
+git checkout -b nova-branch
+
+# Restaurar arquivo (último commit)
+git checkout -- caminho/arquivo
+
+# Restaurar arquivo de commit antigo
+git checkout <commit> -- caminho/arquivo
+
+# Checkout de commit (detached HEAD)
+git checkout <commit>
+
+# Checkout de tag
+git checkout v1.0.0
+```
 
