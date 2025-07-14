@@ -71,6 +71,12 @@ git remote add <nome_remoto> <url_do_repo>
 # Enviar alterações para o repositório remoto
 git push
 
+# Puxa as alterações para o repositório remoto
+git pull
+
+# Atualiza o repositorio local com as infos do remoto
+git fetch
+
 ```
 
 # Branch
