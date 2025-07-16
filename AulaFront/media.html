@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 50%;
+            margin-bottom: 10px;
+            border: 2px solid white;
+
+        }
+
+        #nav-imagem{
+            margin: 10px;
+            width: 90%;
+            padding: 10px;
+            border: 2px solid black;
+            
+        }
+
+        #href-imagem {
+            border: 1px solid black;
+            margin: 20px;
+            
+        }
+
+        #imagem-exemplo{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 2px solid black;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        #imagem-exemplo2{
+            width: 300px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="media-container">
+        <header>
+            <h1 id="Inicio">Aula Sobre Links, Imagens e Media em HTML</h1>
+            <nav id="nav-imagem">
+                <a href="#imagem-exemplo" id="href-imagem">Imagem Exemplo</a>
+                <a href="#imagem-exemplo2" id="href-imagem">Imagem Exemplo2</a>
+                <a href="#video-exemplo" id="href-imagem">Video Exemplo:</a>
+            </nav>
+        </header>
+        
+        
+
+        <a href="#Inicio">Link para o inicio</a>
+        <br>
+
+        <p id="jump-forms">Sessao Ancorada:
+            <a href="forms.html">Link para outro arquivo</a>
+        </p>
+
+        <p id=""jump-email>Sessao Ancoarada de email:
+            <a href="mailto:danilocarneirop@gmail.com" target="_blank" rel="noopener noferrer">Envie um email para o suporte</a>
+        </p>
+
+        <p>
+            <h3>Imagem de exemplo:</h3>
+            <img src="assets/teste3.webp" alt="Texto quando a imagem nao carrega" width="300" id="imagem-exemplo">
+
+        </p>
+
+        <p>
+            <h3>Imagem de maneira responsiva:</h3>
+            <picture>
+                <source media="(min-width: 100px)"
+                srcset="assets/teste3.webp">
+                <img src="assets/teste3.webp" alt="texto alternativo" id="imagem-exemplo2">
+            </picture>
+        </p>
+
+        <p>
+            <h3>Video de Exemplo:</h3>
+            <iframe width="500" height="300" src="https://www.youtube.com/embed/o_YBg18B6Jc" title="Oguri Cap do her iconic move again" 
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen id="video-exemplo"></iframe>
+        </p>
+
+        <!-- Um cabecalho com menu interno, um seja link para email e o outro ancoras para imagens em diferentes tamanhos-->
+    </div>
+</body>
+</html>
