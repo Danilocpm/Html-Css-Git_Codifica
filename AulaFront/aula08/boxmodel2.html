@@ -6,6 +6,10 @@
     <title>box</title>
     <style>
 
+        body {
+            height: 200vh;
+        }
+
         div {
             border: 1px solid black;
             width:200px;
@@ -36,6 +40,20 @@
             left: 70px;
             background-color: orange;
         }
+
+        div.fixa {
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+
+        div.sticky {
+            position: sticky;
+            top: 0;
+            left:0;
+            margin: 0;
+
+        }
     </style>
 </head>
 <body>
@@ -53,6 +71,14 @@
 
         <div class="container">
             <div class="absolut"> Absoluta </div>
+        </div>
+
+        <div class="fixa">
+            <h2> Fixa </h1>
+        </div>
+
+        <div class="sticky">
+            <h2> Sticky </h1>
         </div>
     </body>
     <footer>
