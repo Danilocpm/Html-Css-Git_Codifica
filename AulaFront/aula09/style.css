@@ -1,0 +1,49 @@
+body {
+    background-color: beige;
+}
+
+header {
+    background-color: antiquewhite;
+    width: 100%;
+}
+
+#content-nav {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    max-width: 1200px;
+}
+
+#logo {
+    height: 100px; 
+}
+
+.menu-links {
+    margin-left: auto;
+    margin-right: auto;
+}
+.menu-links a {       
+    font-size: 25px;
+    margin-left: 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.contender {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: antiquewhite;
+}
+.galeria img  {
+    padding: 10px;
+    background-color: whitesmoke;
+    margin: 5px;
+    border: 1px solid black;
+    height: 300px;
+    margin: 10px;
+
+}
