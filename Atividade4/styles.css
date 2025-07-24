@@ -1,0 +1,402 @@
+/* Reset CSS Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis CSS para o tema "Terminal" */
+:root {
+    --cor-fundo-principal: #1a1a1a; /* Preto bem escuro */
+    --cor-fundo-card: #222222;    /* Um pouco menos escuro para cards */
+    --cor-texto-principal: #e0e0e0; /* Cinza claro para o texto */
+    --cor-verde-neon: #00ff00;    /* Verde neon vibrante */
+    --cor-verde-escuro: #008800;  /* Verde mais escuro para detalhes */
+    --cor-borda: #333333;       /* Borda sutil */
+    --fonte-terminal: 'Fira Code', monospace; /* Fonte monoespaçada */
+}
+
+body {
+    font-family: var(--fonte-terminal);
+    line-height: 1.6;
+    color: var(--cor-texto-principal);
+    background-color: var(--cor-fundo-principal);
+    margin: 0;
+    padding: 0;
+    display: flex; /* Usar flex para centralizar o conteúdo principal */
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o body ocupe a altura total da tela */
+}
+
+main {
+    flex-grow: 1; /* Permite que o main ocupe o espaço restante */
+    max-width: 1000px; /* Largura máxima para o conteúdo principal */
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* Seletores por elemento */
+h1, h2, h3 {
+    color: var(--cor-verde-neon);
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px var(--cor-verde-neon); /* Efeito neon sutil */
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+a {
+    color: var(--cor-verde-neon);
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Pseudo-classes */
+a:hover {
+    color: var(--cor-verde-escuro);
+    text-shadow: 0 0 8px var(--cor-verde-neon);
+}
+
+/* Classe de destaque para texto */
+.highlight {
+    color: var(--cor-verde-neon);
+    font-weight: bold;
+}
+
+.highlight-green {
+    color: var(--cor-verde-neon);
+}
+
+/* Ponto de prompt antes dos títulos */
+.prompt {
+    color: var(--cor-verde-neon);
+    animation: blink-caret 0.75s step-end infinite; /* Simula cursor piscando */
+    margin-right: 5px;
+}
+
+@keyframes blink-caret {
+    from, to { border-right-color: transparent }
+    50% { border-right-color: var(--cor-verde-neon); }
+}
+
+/* Estilo do Header */
+header {
+    background-color: var(--cor-fundo-card); /* Fundo um pouco mais claro que o body */
+    color: var(--cor-verde-neon);
+    padding: 30px 0;
+    text-align: center;
+    border-bottom: 2px solid var(--cor-borda);
+    box-shadow: 0 5px 15px rgba(0, 255, 0, 0.1); /* Sombra neon */
+}
+
+.header-content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--cor-verde-neon); /* Borda neon na foto */
+    box-shadow: 0 0 10px var(--cor-verde-neon); /* Brilho neon na foto */
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05) rotate(2deg); /* Pequena rotação no hover */
+    box-shadow: 0 0 15px var(--cor-verde-neon);
+}
+
+.slogan {
+    font-size: 1.1em;
+    font-style: normal; /* Removendo itálico */
+    color: var(--cor-texto-principal);
+    text-shadow: none;
+}
+
+/* Estilo do Nav */
+nav {
+    background-color: var(--cor-fundo-card);
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px dashed var(--cor-borda); /* Linha tracejada */
+    box-shadow: 0 2px 8px rgba(0, 255, 0, 0.05);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--cor-verde-neon);
+    padding: 8px 15px;
+    display: block;
+    border: 1px solid transparent; /* Borda transparente inicial */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: var(--cor-verde-escuro);
+    border-color: var(--cor-verde-neon);
+    border-radius: 3px;
+    color: var(--cor-fundo-principal); /* Texto escuro no hover para contraste */
+}
+
+/* Estilo do Main e Sections */
+section {
+    background-color: var(--cor-fundo-card);
+    margin-bottom: 30px;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--cor-borda);
+    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.08); /* Sombra mais forte */
+}
+
+/* Layout com Flexbox/CSS Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 15px;
+    /* text-align: center; REMOVE THIS - it will be handled by flexbox within skill-item */
+}
+
+.skill-item {
+    background-color: var(--cor-fundo-principal);
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: var(--cor-verde-neon);
+    border: 1px solid var(--cor-verde-escuro);
+    transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+
+    /* Add these for vertical centering of image and text */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;    /* Center items horizontally within the flex container */
+    justify-content: center; /* Center items vertically (if there's extra space) */
+    text-align: center;     /* Ensure text is centered */
+}
+
+.skill-item img {
+    width: 40px;  /* Adjust image size as needed */
+    height: 40px; /* Adjust image size as needed */
+    margin-bottom: 10px; /* Space between the image and the text */
+    object-fit: contain; /* Ensures the entire image is visible, scales down if needed */
+}
+
+.skill-item:hover {
+    background-color: var(--cor-verde-neon);
+    color: var(--cor-fundo-principal); /* Texto escuro no hover */
+    transform: translateY(-5px);
+    border-color: var(--cor-fundo-principal);
+}
+
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.project-card {
+    background-color: var(--cor-fundo-principal);
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1 1 300px;
+    box-shadow: 0 2px 10px rgba(0, 255, 0, 0.05);
+    text-align: center;
+    border: 1px solid var(--cor-borda);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 5px 20px rgba(0, 255, 0, 0.15); /* Sombra mais intensa no hover */
+}
+
+.project-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 3px;
+    border: 1px solid var(--cor-verde-escuro);
+    margin-bottom: 15px;
+}
+
+.project-card h3 {
+    margin-top: 0;
+    color: var(--cor-verde-neon);
+}
+
+.project-card p {
+    color: var(--cor-texto-principal);
+}
+
+.project-card a {
+    display: inline-block;
+    background-color: var(--cor-verde-escuro);
+    color: var(--cor-fundo-principal); /* Texto escuro no botão */
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid var(--cor-verde-neon);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.project-card a:hover {
+    background-color: var(--cor-verde-neon);
+    color: var(--cor-fundo-principal);
+    box-shadow: 0 0 10px var(--cor-verde-neon); /* Brilho neon no botão */
+}
+
+/* Estilo do Aside */
+.social-links {
+    display: flex;
+    flex-direction: column; /* Links um abaixo do outro */
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.social-links a {
+    font-size: 1em;
+    font-weight: normal;
+    background-color: var(--cor-fundo-principal);
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 1px dashed var(--cor-verde-escuro);
+    display: block; /* Para o padding funcionar */
+    max-width: fit-content; /* Ajusta a largura ao conteúdo */
+    margin: 0 auto; /* Centraliza o link */
+}
+
+.social-links a:hover {
+    background-color: var(--cor-verde-neon);
+    color: var(--cor-fundo-principal);
+    border: 1px solid var(--cor-fundo-principal);
+}
+
+/* Pseudo-elemento (removido a seta, não combina tanto com terminal) */
+/* Se quiser algo, pode ser um colchete, por exemplo: */
+.social-links a::before {
+    content: '[';
+    color: var(--cor-verde-neon);
+    margin-right: 5px;
+}
+.social-links a::after {
+    content: ']';
+    color: var(--cor-verde-neon);
+    margin-left: 5px;
+}
+
+
+/* Estilo do Footer */
+footer {
+    background-color: var(--cor-fundo-card);
+    color: var(--cor-texto-principal);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto; /* Empurra o footer para baixo */
+    border-top: 2px solid var(--cor-borda);
+    box-shadow: 0 -5px 15px rgba(0, 255, 0, 0.1);
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.85em;
+    color: var(--cor-verde-escuro); /* Texto do footer em verde mais discreto */
+}
+
+
+/* Responsividade com Media Queries */
+
+/* Para telas menores que 768px (tablets e celulares) */
+@media (max-width: 768px) {
+    header {
+        padding: 20px 0;
+    }
+
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .slogan {
+        font-size: 0.9em;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .project-card {
+        flex: 1 1 100%;
+    }
+
+    .social-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Para telas menores que 480px (celulares) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    .profile-photo {
+        width: 90px;
+        height: 90px;
+    }
+
+    nav ul li a {
+        padding: 6px 10px;
+        font-size: 0.9em;
+    }
+    
+    .project-card a {
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
+
+    .social-links a {
+        font-size: 0.9em;
+    }
+}
