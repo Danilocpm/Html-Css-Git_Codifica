@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .focado {
+            color: blue;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo">Titulo Original</h1>
+    <button id="buttonAlt">Alterar Titulo</button>
+    <button id="btnAdicionar">Adicionar Item</button>
+
+    <ul id="lista"></ul>
+
+    <p id="paragrafo">Copa Mundial de Clubes</p>
+
+    <button onclick = "mostrarDialogos()">Iniciar</button>
+
+    <button onclick="btnIr()">Ir para o Google</button>
+    <button onclick="btnAttPg()">Atualizar Pagina</button>
+    <br>
+    <button onclick="exibirInfo()">Ver Informacoes</button>
+
+    <pre id=saida></pre>
+
+    
+    <script>
+        const paragrafo = document.getElementById('paragrafo')
+        const btn = document.getElementById('buttonAlt')
+        const titulo = document.getElementById('titulo')
+        const lista = document.getElementById('lista')
+        const btnAdd = document.getElementById('btnAdicionar')
+
+        let contador = 1
+
+        btn.addEventListener('click', () => {
+            titulo.textContent = 'Titulo Atualizado'
+        })
+
+        btnAdd.addEventListener('click', () => {
+            const item = document.createElement('li')
+            item.textContent = `Item ${contador++} `
+
+            lista.appendChild(item)
+        })
+
+        paragrafo.addEventListener('mouseover', () => {
+            paragrafo.classList.add('focado')
+        })
+
+        paragrafo.addEventListener('mouseout', () => {
+            paragrafo.classList.remove('focado')
+        })
+
+        function mostrarDialogos() {
+            alert('Bem vindo')
+            const nome = prompt('Qual e o seu nome?')
+
+            if(confirm(`Confirmar nome: ${nome} `)) {
+                alert(`Ola ${nome}`)
+            } else {
+                alert('Voce cancelou a confirmacao')
+            }
+        }
+
+
+        function btnIr() {
+            window.location.href = 'google.com'
+        }
+
+        function btnAttPg() {
+            window.location.reload()
+        }
+
+        function exibirInfo() {
+            const info = {
+                userAgent: navigator.userAgent,
+                plataforma: navigator.platform,
+                idioma: navigator.language,
+                largura: screen.width,
+                altura: screen.height
+            }
+
+            document.getElementById('saida').textContent = JSON.stringify(info, null, 2)
+        }
+
+    </script>
+</body>
+</html>
