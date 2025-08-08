@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        label {
+            margin: 5px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="filmName">Digite o nome do filme: </label>
+        <input type="text" id="filmName">
+        <button id="buscar">Buscar</button>
+        <div id="resultado"></div>
+    </div>
+
+
+
+
+    <script>
+        const resultado = document.getElementById('resultado')
+        const filmNameInput = document.getElementById('filmName')
+        const buscar = document.getElementById('buscar')
+
+
+        async function getFilme() {
+            const filmName = filmNameInput.value
+            const url = `http://www.omdbapi.com/?apikey=6d9a41e7&t=${filmName}`
+
+            try {
+                const resp = await fetch(url, {method: 'GET'})
+
+                const data = await resp.json()
+
+                resultado.innerHTML = `
+                <h2>Filme encontrado: </h2>
+                <ul>
+                    <li>Titulo: ${data.Title}</li>
+                    <li>Ano: ${data.Year}</li>
+                    <li>Lancamento: ${data.Released}</li>
+                    <li>Genero: ${data.Genre}</li>
+                    <li>Diretor: ${data.Director}</li>
+                    <li>Nota: ${data.Rating}</li>
+                </ul>
+                
+                
+                `
+            }
+
+            catch (err) {
+                resultado.innerHTML = `
+                <h2>Filme nao encontrado</h2>
+                `
+            }
+        }
+
+        buscar.addEventListener('click', getFilme)
+    </script>
+</body>
+</html>
