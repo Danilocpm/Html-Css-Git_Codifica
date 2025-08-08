@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: arial;
+            margin: 0;
+        }
+
+        button {}
+
+        pre {}
+    </style>
+</head>
+
+<body>
+    <h1>Assincronismo</h1>
+
+    <button id="btnPromise">Executar Promise</button>
+    <pre id="outPromise"></pre>
+
+    <button id="btnFetchThen">Fetch via .then()</button>
+    <pre id="outFetchThen"></pre>
+
+    <button id="btnFetchAsync">Fetch via aync/await</button>
+    <pre id="outFetchAsync"></pre>
+
+    <script>
+        function simulatePromise(valor, tempMS) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (valor) {
+                        resolve('Sucesso!' + valor);
+                    } else {
+                        reject('Erro: valor invalido');
+                    }
+                }, tempMS);
+            });
+        }
+
+
+        document.getElementById('btnPromise').addEventListener('click', () => {
+            const out = document.getElementById('outPromise')
+            out.textContent = 'Aguardando....'
+            simulatePromise(' Ola mundo!', 1500).then(msg => {
+                out.textContent = msg
+            })
+                .catch(err => {
+                    out.textContent = err
+                })
+        })
+
+
+        async function consultarCepAsync() {
+            const out = document.getElementById('outFetchAsync')
+
+            out.textContent = 'Buscando Cep...'
+            const url = `https://viacep.com.br/ws/92709510/json/`
+
+            
+
+            try {
+                const resp = await fetch(url, {method: 'GET'})
+
+                const data = await resp.json()
+
+                out.textContent = JSON.stringify(data, null, 2)
+            } catch(err) {
+                out.textContent = err
+            }
+        }
+
+        document.getElementById('btnFetchAsync').addEventListener('click', consultarCepAsync)
+
+
+
+        
+    </script>
+</body>
+
+</html>
