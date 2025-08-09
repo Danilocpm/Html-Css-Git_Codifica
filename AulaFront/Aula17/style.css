@@ -41,3 +41,37 @@ body {
     word-break: break-all;
 
 }
+
+.calcKeyboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px 10px;
+}
+
+button {
+    background: #333333;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    height: 65px;
+    width: 65px;
+}
+
+button:active, button:focus {
+    filter: brightness(120%);
+}
+
+.keyZero {
+    grid-column: span 2;
+    width: 100%;
+}
+
+.keyOperations {
+    background: #dd8810;
+}
+
+.keyOthers {
+    background: #999797;
+    color: #000000;
+}
+
