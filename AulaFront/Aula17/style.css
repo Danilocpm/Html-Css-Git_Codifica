@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #8bc6ec;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.container {
+    background: #000000;
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+    padding: 25px;
+
+}
+
+.calcText {
+    margin-bottom: 20px;
+    padding-left: 5px;
+
+}
+
+.calcText p {
+    width: 100%;
+    font-size: 3.5rem;
+    text-align: end;
+    color: #fff;
+    background: transparent;
+    border: none;
+    outline: none;
+    word-wrap: break-word;
+    word-break: break-all;
+
+}
